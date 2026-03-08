@@ -14,7 +14,8 @@ This setup simulates how modern containerized applications are structured.
 
 ## Architecture
 
-Browser → Nginx → Flask Containers → PostgreSQL
+This project stimulated a production-style container architecture using Docker Compose.
+![Architecture Diagram](architecture.png)
 
 ```
 Browser
@@ -25,6 +26,12 @@ Flask App Containers (Scaled)
    ↓
 PostgreSQL Database
 ```
+## How It Works
+
+1. The browser sends a request to Nginx.
+2. Nginx acts as a reverse proxy and distributes traffic across multiple Flask containers.
+3. Each Flask container processes the request and connects to the PostgreSQL database.
+4. PostgreSQL stores data using a persistent volume so data survives container restarts.
 
 ---
 
