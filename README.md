@@ -15,7 +15,7 @@ This setup simulates how modern containerized applications are structured.
 ## Architecture
 
 This project stimulated a production-style container architecture using Docker Compose.
-![Architecture Diagram](architecture.png)
+![Architecture Diagram](images/architecture.png)
 
 ```
 Browser
