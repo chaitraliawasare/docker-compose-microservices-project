@@ -109,12 +109,12 @@ Database connection successful from container 5a7e0c9b93fa
 This demonstrates **load balancing across containers**.
 
 ---
+## Adding Health Checks with Prometheus, Grafana and Nodeexporter
+<img width="1710" height="1112" alt="image" src="https://github.com/user-attachments/assets/16f21917-c619-4466-9997-a79b20cf743e" />
+<img width="1710" height="1112" alt="image" src="https://github.com/user-attachments/assets/512acbe4-2a17-40b0-a7ca-e7e5dd167960" />
 
 ## Future Improvements
-
-- Add health checks
 - Implement CI/CD pipeline
-- Add monitoring with Prometheus and Grafana
 - Deploy the application on Kubernetes
 
 ---
