@@ -10,11 +10,21 @@ services:
     - database
    networks:
     - backend
+   healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   database:
     image: postgres:16
     volumes:
       - ./data:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "${POSTGRES_USER}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
     environment:
        POSTGRES_USER: ${POSTGRES_USER}
        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -38,6 +48,7 @@ services:
     image: prom/prometheus
     volumes:
       - ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./monitoring/alerts/alerts.yml:/etc/prometheus/alerts.yml
     ports:
       - "9090:9090"
     networks:
@@ -62,7 +73,7 @@ services:
 networks:
   backend:
     driver: bridge
-    
+
 volumes:
   grafana_data:
   
